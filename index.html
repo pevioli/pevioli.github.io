@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Álbum de fotos de Tita 🎉</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      border: 1px solid #ccc;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    input[type="file"] {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📸 Álbum de fotos de Tita</h1>
+    <p>Subí acá las fotos que sacaste en la fiesta 🥳</p>
+    <form action="https://formsubmit.co/violi.pablo@gmail.com" method="POST" enctype="multipart/form-data">
+      <input type="file" name="foto" accept="image/*" required />
+      <br />
+      <button type="submit">Subir foto</button>
+    </form>
+    <p>¡Gracias por compartir!</p>
+  </div>
+</body>
+</html>
