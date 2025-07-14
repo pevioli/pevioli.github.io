@@ -2,36 +2,54 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Álbum de fotos de Tita 🎉</title>
   <style>
     body {
       font-family: sans-serif;
-      text-align: center;
+      background-color: #fefefe;
       padding: 2rem;
+      text-align: center;
     }
     .container {
       max-width: 400px;
       margin: auto;
-      border: 1px solid #ccc;
+      background: #ffffff;
+      border-radius: 12px;
       padding: 2rem;
-      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
     }
     input[type="file"] {
-      margin-bottom: 1rem;
+      margin: 1rem 0;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      background-color: #2d89ef;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1b5fc6;
+    }
+    p {
+      font-size: 1rem;
+      color: #333;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>📸 Álbum de fotos de Tita</h1>
-    <p>Subí acá las fotos que sacaste en la fiesta 🥳</p>
-    <form action="https://formsubmit.co/violi.pablo@gmail.com" method="POST" enctype="multipart/form-data">
-      <input type="file" name="foto" accept="image/*" required />
+    <p>Subí tus fotos de la fiesta (hasta 10 imágenes por vez)</p>
+    <form action="https://formsubmit.co/violi.pablo@mail.com" method="POST" enctype="multipart/form-data">
+      <input type="file" name="foto[]" accept="image/*" multiple required />
       <br />
-      <button type="submit">Subir foto</button>
+      <button type="submit">📤 Subir fotos</button>
     </form>
-    <p>¡Gracias por compartir!</p>
+    <p>¡Gracias por compartir! 🎉</p>
   </div>
 </body>
 </html>
