@@ -1,0 +1,179 @@
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif; /* Fuente principal */
+    background: linear-gradient(to right, #fceabb, #f8b500); /* Degradado cálido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 15px; /* Reducir padding para móviles */
+    box-sizing: border-box;
+    color: #333;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px 20px; /* Reducir padding para móviles */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 500px; /* Reducir el ancho máximo para móviles */
+    width: 100%;
+    margin: auto; /* Centrar en pantallas más grandes */
+}
+
+.tita-heading {
+    font-family: 'Pacifico', cursive; /* Fuente más festiva */
+    color: #e74c3c; /* Un rojo vibrante */
+    margin-bottom: 10px;
+    font-size: 2.5em; /* Ajustar tamaño para móviles */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.intro-message {
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    font-size: 1.1em;
+}
+
+.file-upload-area {
+    margin-bottom: 25px;
+    border: 2px dashed #f39c12; /* Naranja festivo */
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff9e6; /* Fondo más claro */
+    position: relative;
+    overflow: hidden;
+}
+
+#fileInput {
+    display: none;
+}
+
+.upload-button {
+    display: inline-flex; /* Para alinear icono y texto */
+    align-items: center;
+    gap: 8px; /* Espacio entre icono y texto */
+    background-color: #2ecc71; /* Verde más amigable */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.upload-button .icon {
+    font-size: 1.3em;
+}
+
+.upload-button:hover {
+    background-color: #27ae60; /* Verde más oscuro al pasar el ratón */
+}
+
+#fileCount {
+    display: block;
+    margin-top: 12px;
+    color: #777;
+    font-size: 0.95em;
+}
+
+#previewArea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Menor espacio entre previsualizaciones */
+    justify-content: center;
+    margin-bottom: 25px;
+    padding-top: 15px;
+    border-top: 1px dashed #eee; /* Línea discontinua */
+}
+
+.image-preview {
+    width: 80px; /* Tamaño de previsualización más pequeño para móviles */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+#uploadButton {
+    background-color: #3498db; /* Azul vibrante */
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    width: 100%;
+    max-width: 280px; /* Ancho máximo para el botón */
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#uploadButton:hover:not([disabled]) {
+    background-color: #2980b9;
+}
+
+#uploadButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 12px; /* Menor padding para móviles */
+    border-radius: 8px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 0.95em;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    opacity: 1;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    opacity: 1;
+}
+
+.message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+    opacity: 1;
+}
+
+/* Media Queries para pantallas más grandes (si se accede desde desktop) */
+@media (min-width: 600px) {
+    .container {
+        padding: 40px;
+    }
+    .tita-heading {
+        font-size: 3em;
+    }
+    .intro-message {
+        font-size: 1.2em;
+    }
+    .image-preview {
+        width: 100px;
+        height: 100px;
+    }
+    #uploadButton {
+        max-width: 300px;
+    }
+}

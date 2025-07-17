@@ -1,55 +1,33 @@
-g<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Álbum de fotos de Tita 🎉</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #fefefe;
-      padding: 2rem;
-      text-align: center;
-    }
-    .container {
-      max-width: 400px;
-      margin: auto;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-    }
-    input[type="file"] {
-      margin: 1rem 0;
-    }
-    button {
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      border: none;
-      background-color: #2d89ef;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #1b5fc6;
-    }
-    p {
-      font-size: 1rem;
-      color: #333;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Fotos para Tita!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>📸 Álbum de fotos de Tita</h1>
-    <p>Subí tus fotos de la fiesta (hasta 10 imágenes por vez)</p>
-    <form action="https://formsubmit.co/violi.pablo@gmail.com" method="POST" enctype="multipart/form-data">
-      <input type="file" name="foto[]" accept="image/*" multiple required />
-      <br />
-      <button type="submit">📤 Subir fotos</button>
-    </form>
-    <p>¡Gracias por compartir! 🎉</p>
-  </div>
+    <div class="container">
+        <h1 class="tita-heading">¡Feliz Cumpleaños Tita!</h1>
+        <p class="intro-message">Subí tus fotos de la fiesta para que **Tita** pueda verlas y revivir este día especial. ¡Gracias por compartir tus recuerdos!</p>
+
+        <div class="file-upload-area">
+            <input type="file" id="fileInput" accept="image/*" multiple>
+            <label for="fileInput" class="upload-button">
+                <span class="icon">&#128247;</span> Seleccionar Fotos
+            </label>
+            <span id="fileCount">0 archivos seleccionados</span>
+        </div>
+
+        <div id="previewArea">
+            </div>
+
+        <button id="uploadButton" disabled>Subir Fotos</button>
+
+        <div id="statusMessage" class="message"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
