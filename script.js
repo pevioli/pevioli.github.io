@@ -3,6 +3,10 @@
 // ¡IMPORTANTE!: Reemplaza esta URL con la "URL de la aplicación web" que obtuviste en el Paso 4 del Backend.
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxFar0vvgyJtcqWHlagXIdhwYnE_PeobTvpqKGmWiZFb4NcKEpwZKCAuJ37Exq3Dud9/exec'; // Ejemplo: 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXXXXX_YYYYYYYYYYY/exec'
 
+// --- NUEVA CONSTANTE PARA EL LÍMITE DE FOTOS ---
+const MAX_PHOTOS_PER_UPLOAD = 10;
+// -----------------------------------------------
+
 const fileInput = document.getElementById('fileInput');
 const fileCountSpan = document.getElementById('fileCount');
 const previewArea = document.getElementById('previewArea');
@@ -13,7 +17,21 @@ let selectedFiles = []; // Array para almacenar los archivos seleccionados
 
 // Event Listener para cuando se seleccionan archivos
 fileInput.addEventListener('change', (event) => {
-    selectedFiles = Array.from(event.target.files); // Convertir FileList a Array
+    // --- LÓGICA DE VALIDACIÓN DEL LÍMITE DE FOTOS ---
+    const files = Array.from(event.target.files);
+
+    if (files.length > MAX_PHOTOS_PER_UPLOAD) {
+        showStatusMessage('error', `¡Ups! Puedes subir un máximo de ${MAX_PHOTOS_PER_UPLOAD} fotos a la vez. Por favor, selecciona menos.`);
+        fileInput.value = ''; // Limpiar la selección actual
+        selectedFiles = [];
+        fileCountSpan.textContent = '0 archivos seleccionados';
+        previewArea.innerHTML = ''; // Limpiar previsualizaciones
+        uploadButton.disabled = true;
+        return; // Detener la ejecución
+    }
+    // -----------------------------------------------
+
+    selectedFiles = files; // Convertir FileList a Array (ahora ya filtrado)
     fileCountSpan.textContent = `${selectedFiles.length} archivo(s) seleccionado(s)`;
     uploadButton.disabled = selectedFiles.length === 0; // Habilitar/deshabilitar botón
 
@@ -27,6 +45,13 @@ uploadButton.addEventListener('click', async () => {
         showStatusMessage('error', 'Por favor, selecciona al menos una foto para subir.');
         return;
     }
+
+    // --- Validación adicional antes de subir (redundante pero seguro) ---
+    if (selectedFiles.length > MAX_PHOTOS_PER_UPLOAD) {
+        showStatusMessage('error', `Error: Intentando subir más de ${MAX_PHOTOS_PER_UPLOAD} fotos. Recarga la página y vuelve a intentar.`);
+        return;
+    }
+    // -------------------------------------------------------------------
 
     uploadButton.disabled = true; // Deshabilitar botón durante la subida
     showStatusMessage('info', 'Subiendo fotos... Por favor, espera.');
