@@ -48,6 +48,10 @@ body {
     background-color: #fff9e6; /* Fondo más claro */
     position: relative;
     overflow: hidden;
+    display: flex; /* Para flexbox */
+    flex-direction: column; /* Apilar elementos verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    gap: 12px; /* Espacio entre elementos internos */
 }
 
 #fileInput {
@@ -55,9 +59,9 @@ body {
 }
 
 .upload-button {
-    display: inline-flex; /* Para alinear icono y texto */
+    display: inline-flex;
     align-items: center;
-    gap: 8px; /* Espacio entre icono y texto */
+    gap: 8px;
     background-color: #2ecc71; /* Verde más amigable */
     color: white;
     padding: 12px 25px;
@@ -76,9 +80,17 @@ body {
     background-color: #27ae60; /* Verde más oscuro al pasar el ratón */
 }
 
+/* --- NUEVO ESTILO PARA EL MENSAJE DE LÍMITE --- */
+.upload-limit-text {
+    font-size: 0.85em; /* Más pequeño que el texto normal */
+    color: #888; /* Un color gris suave para que no resalte demasiado */
+    margin-top: -5px; /* Para acercarlo al botón si es necesario */
+}
+/* ----------------------------------------------- */
+
 #fileCount {
     display: block;
-    margin-top: 12px;
+    margin-top: 5px; /* Ajuste de margen para que quede debajo del límite */
     color: #777;
     font-size: 0.95em;
 }
@@ -86,15 +98,15 @@ body {
 #previewArea {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px; /* Menor espacio entre previsualizaciones */
+    gap: 8px;
     justify-content: center;
     margin-bottom: 25px;
     padding-top: 15px;
-    border-top: 1px dashed #eee; /* Línea discontinua */
+    border-top: 1px dashed #eee;
 }
 
 .image-preview {
-    width: 80px; /* Tamaño de previsualización más pequeño para móviles */
+    width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 8px;
@@ -103,7 +115,7 @@ body {
 }
 
 #uploadButton {
-    background-color: #3498db; /* Azul vibrante */
+    background-color: #3498db;
     color: white;
     padding: 14px 25px;
     border: none;
@@ -112,7 +124,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, opacity 0.3s ease;
     width: 100%;
-    max-width: 280px; /* Ancho máximo para el botón */
+    max-width: 280px;
     margin-top: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -129,7 +141,7 @@ body {
 
 .message {
     margin-top: 20px;
-    padding: 12px; /* Menor padding para móviles */
+    padding: 12px;
     border-radius: 8px;
     font-weight: bold;
     opacity: 0;
